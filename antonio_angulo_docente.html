@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antonio Angulo Salas — Docente Investigador</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+<style>
+  :root {
+    --ink: #1C2B3A;
+    --paper: #F7F5F0;
+    --accent: #2E5FA3;
+    --muted: #6B7E8D;
+    --sand: #D4C5A9;
+    --white: #FFFFFF;
+    --card-bg: #FDFCFA;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.7; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; background: var(--white); border-bottom: 1px solid var(--sand); z-index: 100; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-name { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 0.02em; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-family: 'Source Serif 4', serif; font-size: 13px; color: var(--muted); text-decoration: none; letter-spacing: 0.03em; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero { max-width: 800px; margin: 0 auto; padding: 5rem 2rem 4rem; border-bottom: 1px solid var(--sand); }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .hero-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--sand); }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: 0.75rem; }
+  .hero-subtitle { font-size: 1.05rem; color: var(--muted); margin-bottom: 2rem; font-style: italic; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+  .tag { font-size: 12px; padding: 4px 12px; border: 1px solid var(--sand); color: var(--muted); border-radius: 2px; font-family: 'Source Serif 4', serif; letter-spacing: 0.03em; }
+  .hero-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; border-top: 1px solid var(--sand); padding-top: 1.5rem; }
+  .meta-item label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.25rem; }
+  .meta-item span { font-size: 14px; color: var(--ink); font-weight: 400; }
+
+  /* SECTIONS */
+  section { max-width: 800px; margin: 0 auto; padding: 3.5rem 2rem; border-bottom: 1px solid var(--sand); }
+  .section-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--sand); }
+  h2 { font-family: 'Playfair Display', serif; font-size: 1.65rem; font-weight: 600; color: var(--ink); margin-bottom: 1rem; }
+  p { margin-bottom: 1rem; color: #344a5a; }
+
+  /* CURSOS */
+  .course-card { background: var(--card-bg); border: 1px solid var(--sand); border-left: 3px solid var(--accent); margin-bottom: 1.5rem; padding: 1.5rem; }
+  .course-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+  .course-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+  .course-badge { font-size: 11px; padding: 3px 10px; background: #E8EEF7; color: var(--accent); border-radius: 2px; white-space: nowrap; }
+  .course-desc { font-size: 14px; color: var(--muted); margin: 0.5rem 0 1rem; }
+  .course-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .btn-sm { font-size: 12px; padding: 5px 12px; border: 1px solid var(--sand); background: transparent; color: var(--muted); cursor: pointer; display: inline-flex; align-items: center; gap: 5px; border-radius: 2px; font-family: 'Source Serif 4', serif; text-decoration: none; }
+  .btn-sm:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-accent { border-color: var(--accent); color: var(--accent); }
+
+  /* CURSOS ANTERIORES */
+  .prev-courses { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .prev-item { padding: 1rem; border: 1px solid var(--sand); font-size: 14px; }
+  .prev-item .inst { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* PUBLICACIONES */
+  .pub-item { padding: 1.25rem 0; border-bottom: 1px solid var(--sand); display: flex; gap: 1.25rem; align-items: flex-start; }
+  .pub-num { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--sand); font-weight: 700; min-width: 2rem; line-height: 1; padding-top: 4px; }
+  .pub-body .pub-title { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 0.25rem; font-style: italic; }
+  .pub-body .pub-journal { font-size: 13px; color: var(--accent); margin-bottom: 0.2rem; }
+  .pub-body .pub-year { font-size: 12px; color: var(--muted); }
+  .pub-link { font-size: 12px; color: var(--accent); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 0.3rem; }
+
+  /* RECURSOS */
+  .resource-tabs { display: flex; gap: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--sand); }
+  .rtab { padding: 0.5rem 1.25rem; font-size: 13px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Source Serif 4', serif; }
+  .rtab.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .resource-panel { display: none; }
+  .resource-panel.active { display: block; }
+
+  .file-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1rem; border: 1px solid var(--sand); margin-bottom: 0.5rem; background: var(--card-bg); }
+  .file-item .file-name { flex: 1; font-size: 14px; color: var(--ink); }
+  .file-item .file-size { font-size: 12px; color: var(--muted); }
+  .file-item .file-dl { font-size: 12px; color: var(--accent); text-decoration: none; display: flex; align-items: center; gap: 4px; }
+
+  .code-block { background: #F6F8FA; border: 1px solid var(--sand); margin-bottom: 1rem; }
+  .code-header { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 1rem; border-bottom: 1px solid var(--sand); background: #EDECEA; }
+  .code-lang { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
+  .code-copy { font-size: 11px; color: var(--muted); cursor: pointer; background: none; border: none; display: flex; align-items: center; gap: 4px; font-family: 'Source Serif 4', serif; }
+  .code-copy:hover { color: var(--accent); }
+  pre { padding: 1.25rem 1rem; overflow-x: auto; font-size: 13px; margin: 0; }
+  pre code { font-family: 'JetBrains Mono', monospace !important; }
+
+  /* CONTACTO */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .contact-item i { color: var(--accent); font-size: 18px; margin-top: 2px; }
+  .contact-label { font-size: 12px; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 2px; }
+  .contact-value { font-size: 14px; color: var(--ink); }
+  .contact-value a { color: var(--accent); text-decoration: none; }
+
+  /* FOOTER */
+  footer { max-width: 800px; margin: 0 auto; padding: 2rem; display: flex; justify-content: space-between; align-items: center; }
+  footer p { font-size: 12px; color: var(--muted); margin: 0; }
+
+  @media (max-width: 600px) {
+    .hero-meta, .contact-grid, .prev-courses { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Antonio Angulo Salas</span>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#cursos">Cursos</a></li>
+    <li><a href="#publicaciones">Publicaciones</a></li>
+    <li><a href="#recursos">Recursos</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Docente · Investigador · RENACYT P0034249</div>
+  <h1>Antonio Lincoln<br>Angulo Salas</h1>
+  <p class="hero-subtitle">Mg. Ing. Electrónico — Candidato a Doctor en Ingeniería Eléctrica (UNICAMP)</p>
+  <div class="hero-tags">
+    <span class="tag">Industria 4.0</span>
+    <span class="tag">Inteligencia Artificial</span>
+    <span class="tag">Automatización</span>
+    <span class="tag">Agricultura de Precisión</span>
+    <span class="tag">Sistemas Embebidos</span>
+    <span class="tag">I+D+i</span>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item">
+      <label>Institución actual</label>
+      <span>Universidad San Ignacio de Loyola (USIL)</span>
+    </div>
+    <div class="meta-item">
+      <label>Experiencia docente</label>
+      <span>Desde 2016 · +9 años</span>
+    </div>
+    <div class="meta-item">
+      <label>Idiomas</label>
+      <span>Español · Portugués · Inglés</span>
+    </div>
+  </div>
+</div>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-label">Perfil académico</div>
+  <h2>Sobre mí</h2>
+  <p>Ingeniero Electrónico con Maestría en Mecatrónica (PUCP) y Candidato a Doctor en Ingeniería Eléctrica por la Universidad Estatal de Campinas (UNICAMP, Brasil). Cuento con más de 10 años de experiencia liderando proyectos de Investigación, Desarrollo e Innovación (I+D+i) en entornos industriales, gubernamentales y académicos.</p>
+  <p>Me especializo en la gestión estratégica de tecnología, el diseño de soluciones orientadas a la Industria 4.0 y la articulación de ecosistemas de innovación con impacto internacional. Soy investigador calificado por el RENACYT con producción científica indexada en Scopus, SPIE y MDPI, orientada a la automatización avanzada, la inteligencia artificial aplicada y la transferencia tecnológica.</p>
+  <p>Actualmente lidero el grupo de investigación de Transformación Digital e Inteligencia Artificial en la Facultad de Ingeniería de USIL, y asesoro proyectos de tesis de pregrado con 100% de efectividad en titulación.</p>
+</section>
+
+<!-- CURSOS ACTUALES -->
+<section id="cursos">
+  <div class="section-label">Ciclo actual — 2025</div>
+  <h2>Cursos que dicto</h2>
+
+  <div class="course-card">
+    <div class="course-header">
+      <span class="course-title">Seminario de Tesis</span>
+      <span class="course-badge">Ingeniería</span>
+    </div>
+    <p class="course-desc">Curso orientado a la formulación y desarrollo metodológico del proyecto de tesis de pregrado. Se aborda el diseño de investigación, revisión de literatura científica, planteamiento del problema y estructura del informe final.</p>
+    <div class="course-actions">
+      <a class="btn-sm" href="#recursos"><i class="ti ti-file" aria-hidden="true"></i>Sílabo</a>
+      <a class="btn-sm" href="#recursos"><i class="ti ti-presentation" aria-hidden="true"></i>Materiales</a>
+      <a class="btn-sm btn-accent" href="#contacto"><i class="ti ti-message" aria-hidden="true"></i>Consultas</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-header">
+      <span class="course-title">Capstone Project</span>
+      <span class="course-badge">Ingeniería</span>
+    </div>
+    <p class="course-desc">Proyecto integrador de cierre de carrera donde los estudiantes aplican competencias adquiridas para desarrollar una solución tecnológica real. Énfasis en gestión de proyectos (PMI), prototipado y presentación técnica.</p>
+    <div class="course-actions">
+      <a class="btn-sm" href="#recursos"><i class="ti ti-file" aria-hidden="true"></i>Sílabo</a>
+      <a class="btn-sm" href="#recursos"><i class="ti ti-code" aria-hidden="true"></i>Ejemplos de código</a>
+      <a class="btn-sm btn-accent" href="#contacto"><i class="ti ti-message" aria-hidden="true"></i>Consultas</a>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <div class="course-header">
+      <span class="course-title">Tecnologías de Precisión y Monitoreo para la Agroindustria</span>
+      <span class="course-badge">Ingeniería · Agroindustria</span>
+    </div>
+    <p class="course-desc">Curso especializado en sensores avanzados, drones, imágenes satelitales (Sentinel-2), procesamiento de datos NDWI y sistemas de monitoreo para cultivos. Integra fundamentos de IoT y machine learning aplicados al sector agroindustrial.</p>
+    <div class="course-actions">
+      <a class="btn-sm" href="#recursos"><i class="ti ti-file" aria-hidden="true"></i>Sílabo</a>
+      <a class="btn-sm" href="#recursos"><i class="ti ti-code" aria-hidden="true"></i>Ejemplos de código</a>
+      <a class="btn-sm" href="#recursos"><i class="ti ti-map" aria-hidden="true"></i>Datasets</a>
+      <a class="btn-sm btn-accent" href="#contacto"><i class="ti ti-message" aria-hidden="true"></i>Consultas</a>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top: 2.5rem;">Cursos dictados anteriormente</div>
+  <div class="prev-courses">
+    <div class="prev-item">
+      <div>Circuitos Eléctricos y Electrónica</div>
+      <div class="inst">PUCP · 2016–2024</div>
+    </div>
+    <div class="prev-item">
+      <div>Sistemas Embebidos</div>
+      <div class="inst">PUCP · 2016–2024</div>
+    </div>
+    <div class="prev-item">
+      <div>Ingeniería Mecatrónica (cursos especializados)</div>
+      <div class="inst">UPC · 2022</div>
+    </div>
+    <div class="prev-item">
+      <div>Asesoría de Tesis de Pregrado</div>
+      <div class="inst">PUCP · UPC · USIL</div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICACIONES -->
+<section id="publicaciones">
+  <div class="section-label">Producción científica — Indexada Scopus / SPIE / MDPI</div>
+  <h2>Publicaciones e investigación</h2>
+
+  <div class="pub-item">
+    <div class="pub-num">8</div>
+    <div class="pub-body">
+      <div class="pub-title">Crop pest classification using micro-doppler signatures via C-band radar in an anechoic chamber</div>
+      <div class="pub-journal">Smart Agricultural Technology — Elsevier</div>
+      <div class="pub-year">Diciembre 2025</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">7</div>
+    <div class="pub-body">
+      <div class="pub-title">Comparative Study of CNN Architectures for Brain Tumor Classification Using MRI: Exploring GradCAM for Visualizing CNN Focus</div>
+      <div class="pub-journal">Engineering Proceedings — MDPI</div>
+      <div class="pub-year">Febrero 2025</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">6</div>
+    <div class="pub-body">
+      <div class="pub-title">Analysis of Water Stress Using Sentinel-2 NDWI Images for Optimization of Progressive Harvest Dates in Blueberry (Vaccinium corymbosum) Crops</div>
+      <div class="pub-journal">Engineering Proceedings — MDPI</div>
+      <div class="pub-year">Febrero 2025</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">5</div>
+    <div class="pub-body">
+      <div class="pub-title">Ultrasonic Image Processing for the Classification of Benign and Malignant Breast Tumors: Comparative Study of CNN Architectures</div>
+      <div class="pub-journal">Engineering Proceedings — MDPI</div>
+      <div class="pub-year">Enero 2025</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">4</div>
+    <div class="pub-body">
+      <div class="pub-title">Dynamics of Lemon Crop Production in Tambo Grande, Piura: Implementation of CNN and Analysis of Risk Management Associated with Thermal Climatic Phenomena</div>
+      <div class="pub-journal">Engineering Proceedings — MDPI</div>
+      <div class="pub-year">Enero 2025</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">3</div>
+    <div class="pub-body">
+      <div class="pub-title">A new heuristic method for optimizing Y-branches using Genetic Algorithm with optimal dataset generated with Particle Swarm Optimization</div>
+      <div class="pub-journal">SPIE Photonics West</div>
+      <div class="pub-year">Marzo 2021</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">2</div>
+    <div class="pub-body">
+      <div class="pub-title">Design and development of a hexacopter for air quality monitoring at high altitudes</div>
+      <div class="pub-journal">13th IEEE Conference on Automation Science and Engineering (CASE)</div>
+      <div class="pub-year">Agosto 2017</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+
+  <div class="pub-item">
+    <div class="pub-num">1</div>
+    <div class="pub-body">
+      <div class="pub-title">Analysis of Non Propositional and Non Postural Movements Performed by NAO Robot</div>
+      <div class="pub-journal">25th IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN)</div>
+      <div class="pub-year">Agosto 2016</div>
+      <a class="pub-link" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Ver publicación</a>
+    </div>
+  </div>
+</section>
+
+<!-- RECURSOS -->
+<section id="recursos">
+  <div class="section-label">Materiales académicos</div>
+  <h2>Recursos para estudiantes</h2>
+
+  <div class="resource-tabs">
+    <button class="rtab active" onclick="showTab('archivos', event)">Archivos y sílabos</button>
+    <button class="rtab" onclick="showTab('codigo', event)">Ejemplos de código</button>
+    <button class="rtab" onclick="showTab('enlaces', event)">Recursos externos</button>
+  </div>
+
+  <div id="tab-archivos" class="resource-panel active">
+    <div class="file-item">
+      <i class="ti ti-file-text" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Sílabo — Seminario de Tesis 2025-I</span>
+      <span class="file-size">PDF · 420 KB</span>
+      <a class="file-dl" href="#"><i class="ti ti-download" aria-hidden="true"></i>Descargar</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-file-text" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Sílabo — Capstone Project 2025-I</span>
+      <span class="file-size">PDF · 380 KB</span>
+      <a class="file-dl" href="#"><i class="ti ti-download" aria-hidden="true"></i>Descargar</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-file-text" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Sílabo — Tecnologías de Precisión y Monitoreo 2025-I</span>
+      <span class="file-size">PDF · 510 KB</span>
+      <a class="file-dl" href="#"><i class="ti ti-download" aria-hidden="true"></i>Descargar</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-table" style="color: var(--muted); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Plantilla — Informe técnico de proyecto</span>
+      <span class="file-size">DOCX · 85 KB</span>
+      <a class="file-dl" href="#"><i class="ti ti-download" aria-hidden="true"></i>Descargar</a>
+    </div>
+  </div>
+
+  <div id="tab-codigo" class="resource-panel">
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-lang">Python · Análisis NDWI con Sentinel-2</span>
+        <button class="code-copy" onclick="copyCode(this)"><i class="ti ti-copy" aria-hidden="true"></i>Copiar</button>
+      </div>
+      <pre><code class="language-python">import numpy as np
+import rasterio
+import matplotlib.pyplot as plt
+
+# Cargar bandas de Sentinel-2
+# Banda 3 (Verde, B03) y Banda 8 (NIR, B08)
+with rasterio.open("B03.tif") as b3:
+    green = b3.read(1).astype(float)
+
+with rasterio.open("B08.tif") as b8:
+    nir = b8.read(1).astype(float)
+
+# Calcular NDWI
+# NDWI = (Green - NIR) / (Green + NIR)
+ndwi = (green - nir) / (green + nir + 1e-10)
+
+# Visualizar
+plt.figure(figsize=(10, 6))
+plt.imshow(ndwi, cmap='RdYlGn', vmin=-1, vmax=1)
+plt.colorbar(label='NDWI')
+plt.title('Índice de Agua Normalizado (NDWI)')
+plt.axis('off')
+plt.tight_layout()
+plt.savefig("ndwi_output.png", dpi=150)
+plt.show()
+</code></pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-header">
+        <span class="code-lang">Python · CNN para clasificación con Keras</span>
+        <button class="code-copy" onclick="copyCode(this)"><i class="ti ti-copy" aria-hidden="true"></i>Copiar</button>
+      </div>
+      <pre><code class="language-python">from tensorflow import keras
+from tensorflow.keras import layers
+
+def build_cnn(input_shape=(224, 224, 3), num_classes=2):
+    model = keras.Sequential([
+        layers.Conv2D(32, (3, 3), activation='relu',
+                      input_shape=input_shape),
+        layers.MaxPooling2D(2, 2),
+        layers.Conv2D(64, (3, 3), activation='relu'),
+        layers.MaxPooling2D(2, 2),
+        layers.Conv2D(128, (3, 3), activation='relu'),
+        layers.GlobalAveragePooling2D(),
+        layers.Dense(256, activation='relu'),
+        layers.Dropout(0.5),
+        layers.Dense(num_classes, activation='softmax')
+    ])
+    model.compile(
+        optimizer='adam',
+        loss='sparse_categorical_crossentropy',
+        metrics=['accuracy']
+    )
+    return model
+
+model = build_cnn()
+model.summary()
+</code></pre>
+    </div>
+  </div>
+
+  <div id="tab-enlaces" class="resource-panel">
+    <div class="file-item">
+      <i class="ti ti-world" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">IEEE Xplore — Base de datos de artículos de ingeniería</span>
+      <a class="file-dl" href="https://ieeexplore.ieee.org" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>Abrir</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-world" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Copernicus Open Access Hub — Imágenes Sentinel-2</span>
+      <a class="file-dl" href="https://scihub.copernicus.eu" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>Abrir</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-world" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">Google Scholar — Perfil del autor</span>
+      <a class="file-dl" href="#"><i class="ti ti-external-link" aria-hidden="true"></i>Abrir</a>
+    </div>
+    <div class="file-item">
+      <i class="ti ti-world" style="color: var(--accent); font-size: 20px;" aria-hidden="true"></i>
+      <span class="file-name">RENACYT — Registro de investigadores CONCYTEC</span>
+      <a class="file-dl" href="https://ctivitae.concytec.gob.pe" target="_blank"><i class="ti ti-external-link" aria-hidden="true"></i>Abrir</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-label">Contacto y atención</div>
+  <h2>Contacto</h2>
+  <div class="contact-grid">
+    <div class="contact-item">
+      <i class="ti ti-mail" aria-hidden="true"></i>
+      <div>
+        <div class="contact-label">Correo personal</div>
+        <div class="contact-value"><a href="mailto:antonio.angulo.salas@gmail.com">antonio.angulo.salas@gmail.com</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <i class="ti ti-building-university" aria-hidden="true"></i>
+      <div>
+        <div class="contact-label">Institución</div>
+        <div class="contact-value">Universidad San Ignacio de Loyola — Fac. Ingeniería</div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <i class="ti ti-brand-linkedin" aria-hidden="true"></i>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value"><a href="https://linkedin.com/in/antonio-angulo" target="_blank">linkedin.com/in/antonio-angulo</a></div>
+      </div>
+    </div>
+    <div class="contact-item">
+      <i class="ti ti-clock" aria-hidden="true"></i>
+      <div>
+        <div class="contact-label">Horario de atención</div>
+        <div class="contact-value">A coordinar por correo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Antonio Lincoln Angulo Salas · CIP 177290 · RENACYT P0034249</p>
+  <p>USIL — Facultad de Ingeniería</p>
+</footer>
+
+<script>
+function showTab(tab, event) {
+  document.querySelectorAll('.resource-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.rtab').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+function copyCode(btn) {
+  const pre = btn.closest('.code-block').querySelector('pre code');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i>Copiado';
+    setTimeout(() => { btn.innerHTML = '<i class="ti ti-copy" aria-hidden="true"></i>Copiar'; }, 2000);
+  });
+}
+document.addEventListener('DOMContentLoaded', () => { hljs.highlightAll(); });
+</script>
+</body>
+</html>
